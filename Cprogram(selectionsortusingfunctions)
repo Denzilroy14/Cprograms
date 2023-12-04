@@ -1,0 +1,34 @@
+// C program to sort elements in array using selection sort using functions
+void selectionsort(int n,int a[10]){
+    int i,j,temp,min;
+    for(i=0;i<(n-1);i++){
+        min=i;
+        for(j=i+1;j<n;j++){
+            if(a[j]<a[min]){
+                min=j;}
+            if(min!=i){
+                temp=a[i];
+                a[i]=a[min];
+                a[min]=temp;
+            }
+        }
+    }
+}
+#include <stdio.h>
+#define m 10
+void selectionsort(int n,int a[10]);
+int main() {
+    int n,i=0,a[m];
+    printf("Enter no.of elements:");
+    scanf("%d",&n);
+    printf("Enter %d array elements:",n);
+    for(i;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    selectionsort(n,a);
+    printf("Sorted elements are:\n");
+    for(i=0;i<n;i++){
+        printf("%d\t",a[i]);
+    }
+    return 0;
+}
