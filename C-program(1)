@@ -1,4 +1,31 @@
-#include<stdio.h>
-int main(){
-printf("hello world");
-return 0;}
+// C program to sort elements in array using bubble sort using functions
+void sort(int n,int a[10]){
+    int i,j,temp;
+    for(i=0;i<(n-1);i++){
+        for(j=0;j<(n-i-1);j++){
+            if(a[j]>a[j+1]){
+                temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+            }
+        }
+    }
+}
+#include <stdio.h>
+#define m 10
+void sort(int n,int a[10]);
+int main() {
+    int n,i=0,a[m];
+    printf("Enter no.of elements:");
+    scanf("%d",&n);
+    printf("Enter %d array elements:",n);
+    for(i;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    sort(n,a);
+    printf("Sorted elements are:\n");
+    for(i=0;i<n;i++){
+        printf("%d\t",a[i]);
+    }
+    return 0;
+}
