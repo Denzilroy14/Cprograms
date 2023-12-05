@@ -1,0 +1,17 @@
+// c program to find positve and negitive numbers in an array//
+#include <stdio.h>
+const int arr=25;
+int main() {
+    int n,i,a[arr];
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+    printf("Enter %d array elements:", n);
+    for (i = 0; i<=n; i++){
+        scanf("%d", &a[i]);
+        if (a[i]%2==0) 
+            printf("%d is positive\n",a[i]);
+            else 
+            printf("%d is negitive\n",a[i]);
+    }
+    return 0;
+}
