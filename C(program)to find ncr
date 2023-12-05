@@ -1,0 +1,25 @@
+ //prog to find ncr//
+#include <stdio.h>
+into main() {
+    int r,n,i,factn=1,factr=1,ncr,factnr=1;
+    
+        printf("Enter value of first factorial:");
+         scanf("%d",&n);
+       for (i=1;i<=n;i++){
+             factn=(factn*i);}
+          printf("\nEnter value of second  factorial:");
+          scanf("%d",&r);
+         
+        printf("factorial of 1st:%d",factn);
+        for(i=1;i<=r;i++){
+            factr=factr*i;
+        }
+        printf("\nfactorial of 2nd:%d",factr);
+        for(i=1;i<=(n-r);i++){
+            factnr=(factnr*i);
+        }
+        printf("\nfactorial of 3rd;%d",factnr);
+        ncr=factn/(factr*factnr);
+        printf("\nNCR=%d",ncr);
+ return 0;
+}
