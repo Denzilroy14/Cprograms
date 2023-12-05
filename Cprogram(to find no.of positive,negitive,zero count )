@@ -1,0 +1,32 @@
+.// c program to find number of positive,negitive,zero//
+#include <stdio.h>
+const int arr=25;/*here we are defining a constant named ass arr with value 25 with data type int and value of arr does not change anywhere in the code below*/
+int main() {
+    int n,i,a[arr],poscount=0,negcount=0,zerocount=0;
+    printf("Enter the number of elements in the array:");
+    scanf("%d", &n);
+    printf("Enter %d array\nelements:",n);
+    for (i = 0; i<n; i++){
+        scanf("%d",&a[i]);}
+        for (i=0;i<n;i++){
+     if (a[i]>0){/*if  elements in array are greater than 0 then positive count gets incremented by one and no.of  positive elements are counted*/
+         poscount++;}
+     else if(a[i]<0){ /*if  elements in array are less than 0 then negitive count gets incremented by one and no.of  negitive elements are counted*/
+         negcount++;
+     }
+     else if(a[i]==0){ /*if  elements in array are equal to or are 0 then zerocount gets incremented by one and no.of  zero elements are counted*/
+         zerocount++;
+     }
+        }
+     
+     
+     
+      printf("Number of positive numbers in array are:%d\n",poscount);
+      printf("Number of negitive numbers in array are:%d\n",negcount);
+      printf("Number of zero numbers are:%d\n",zerocount);
+                         
+
+    
+      
+    return 0;
+}
