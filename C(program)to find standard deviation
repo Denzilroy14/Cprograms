@@ -1,0 +1,21 @@
+// C program to find standard deviation
+#include <stdio.h>
+#include<math.h>
+int main() {
+    int i,n,a[10];
+    float sum=0,stdev,sum_square=0,avg;
+    printf("Enter value of n:");
+    scanf("%d",&n);
+    printf("Enter array elements:");
+    for(i=0;i<n;i++){
+        scanf("%d",&a[i]);
+        sum_square+=a[i]*a[i];
+    }
+    for(i=0;i<n;i++){
+        sum+=a[i];
+        avg=sum/n;}
+        stdev=sqrt((sum_square/n)-avg*avg);
+    
+    printf("Standard deviation:%f",stdev);
+    return 0;
+}
