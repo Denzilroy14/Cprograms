@@ -1,0 +1,29 @@
+ //program to perform selection sort//
+#include<stdio.h>
+int main()
+{
+    int n,i,j,a[25],temp,min;
+    printf("Enter the number of elements:");
+    scanf("%d",&n);
+    printf("Enter the array elements:");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<(n-1);i++)
+    {     min=i;/*here values of i are initialized as minimum*/
+        for(j=(i+1);j<n;j++){/*j value is incremented by 1 with value of i*/
+            if(a[j]<a[min]){/*checks whether values of j are less than values of i since minimum values are values of i*/
+              min=j;}
+             else if(min!=i){
+                 temp=a[i];
+                a[i]=a[min];
+                a[min]=temp;}
+        }
+    }
+    printf("Array elements after sorting:\n");
+    for(i=0;i<n;i++){
+        printf("%d\t",a[i]);
+    }
+    return 0;
+}
