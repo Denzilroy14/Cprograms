@@ -1,0 +1,42 @@
+//C program to find min max number in matrix
+#include <stdio.h>
+int main() {
+    int r,col,i,j,a[10][10],max,maxr,maxcol,min,minr,mincol;
+    printf("Enter no.of rows:");
+    scanf("%d",&r);
+    printf("Enter no.of columns:");
+    scanf("%d",&col);
+    printf("Enter matrix elements:");
+    for(i=0;i<r;i++){
+        for(j=0;j<col;j++){
+            scanf("%d",&a[i][j]);
+        }
+    }
+    max=a[0][0];
+    min=a[0][0];
+    maxr=0;
+    minr=0;
+    maxcol=0;
+    mincol=0;
+    for(i=0;i<r;i++){
+        for(j=0;j<col;j++){
+            if(a[i][j]>max){
+                max=a[i][j];
+                maxr=i+1;
+                maxcol=j+1;
+            }
+            if(a[i][j]<min){
+                min=a[i][j];
+                minr=i+1;
+                mincol=j+1;
+            }
+        }
+    }
+    printf("Max elelement in matrix:%d",max);
+    printf("\nmax row:%d",maxr);
+    printf("\nmax column:%d",maxcol);
+    printf("\nmin number:%d",min);
+    printf("\nmin row:%d",minr);
+    printf("\nmin column:%d",mincol);
+    return 0;
+}
