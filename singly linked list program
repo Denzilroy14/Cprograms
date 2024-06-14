@@ -6,16 +6,20 @@ struct node{
     struct node*next;
 }*head;
 void insert(int data){
-    struct node*temp=malloc(sizeof(struct node));
+    struct node*temp=malloc(sizeof(struct node)),*ptr;
     temp->data=data;
     temp->next=NULL;
     if(head==NULL){
         head=temp;
     }
     else{
-        temp->next=head;
+        ptr=head;
+        while(ptr->next!=NULL){
+            ptr=ptr->next;
+        }
+        temp->next=ptr->next;
     }
-    head=temp;
+    ptr->next=temp;
 }
 void display(struct node*link){
     while(link!=NULL){
@@ -24,15 +28,24 @@ void display(struct node*link){
     }
 }
 int main() {
-    int n,item;
-    printf("Enter no.of elements:");
-    scanf("%d",&n);
-    printf("Enter data:");
-    for(int i=0;i<n;i++){
-        scanf("%d",&item);
-        insert(item);
+    int n,item,ch;
+    while(1){
+        printf("\n1.Push node\n2.display\n3.exit");
+        printf("Enter any one option:");
+        scanf("%d",&ch);
+        switch(ch){
+            case 1:
+            printf("Enter data:");
+            scanf("%d",&item);
+            insert(item);
+            break;
+            case 2:
+            printf("Linked list elements are:\n");
+            display(head);
+            break;
+            case 3:
+            exit(1);
+        }
     }
-    printf("Linked list elements are:\n");
-    display(head);
     return 0;
 }
