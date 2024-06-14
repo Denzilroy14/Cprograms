@@ -1,0 +1,38 @@
+// c program to implement a singly linked list
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node*next;
+}*head;
+void insert(int data){
+    struct node*temp=malloc(sizeof(struct node));
+    temp->data=data;
+    temp->next=NULL;
+    if(head==NULL){
+        head=temp;
+    }
+    else{
+        temp->next=head;
+    }
+    head=temp;
+}
+void display(struct node*link){
+    while(link!=NULL){
+        printf("%d->",link->data);
+        link=link->next;
+    }
+}
+int main() {
+    int n,item;
+    printf("Enter no.of elements:");
+    scanf("%d",&n);
+    printf("Enter data:");
+    for(int i=0;i<n;i++){
+        scanf("%d",&item);
+        insert(item);
+    }
+    printf("Linked list elements are:\n");
+    display(head);
+    return 0;
+}
