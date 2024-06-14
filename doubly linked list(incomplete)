@@ -1,0 +1,48 @@
+// C program to implement doubly linked list
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node*prev;
+    struct node*next;
+}*head;
+void insert(int data){
+    struct node*temp=malloc(sizeof(struct node));
+    temp->data=data;
+    temp->prev=NULL;
+    temp->next==NULL;
+    if(head==NULL){
+        head=temp;
+    }
+    else{
+        temp->next=head;
+    }
+    head=temp;
+}
+void display(struct node*link){
+    while(link!=NULL){
+        printf("%d->",link->data);
+        link=link->next;
+    }
+}
+void reverse(struct node*link){
+    while(link!=NULL){
+        printf("%d->",link->data);
+        link=link->prev;
+    }
+}
+int main(){
+    int n,num,i;
+    printf("Enter no.of nodes:");
+    scanf("%d",&n);
+    printf("Enter nodes:");
+    for(i=0;i<n;i++){
+        scanf("%d",&num);
+        insert(num);
+    }
+    printf("Elements of linked list are:\n");
+    display(head);
+    printf("\nElements of linked list in reverse\n");
+    reverse(head);
+    return 0;
+}
