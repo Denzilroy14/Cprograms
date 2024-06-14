@@ -7,17 +7,20 @@ struct node{
     struct node*next;
 }*head;
 void insert(int data){
-    struct node*temp=malloc(sizeof(struct node));
+    struct node*temp=malloc(sizeof(struct node)),*ptr;
     temp->data=data;
-    temp->prev=NULL;
     temp->next==NULL;
     if(head==NULL){
         head=temp;
     }
     else{
-        temp->next=head;
+        ptr=head;
+        while(ptr->next!=NULL){
+            ptr=ptr->next;
+        }
+        temp->next=ptr->prev;
     }
-    head=temp;
+    ptr->next=temp;
 }
 void display(struct node*link){
     while(link!=NULL){
@@ -25,10 +28,17 @@ void display(struct node*link){
         link=link->next;
     }
 }
-void reverse(struct node*link){
-    while(link!=NULL){
-        printf("%d->",link->data);
-        link=link->prev;
+void reverse(struct node**link){
+    struct node*ptr=NULL;
+    struct node*temp=*link;
+    while(temp!=NULL){
+        ptr=temp->prev;
+        temp->prev=temp->next;
+        temp->next=ptr;
+        temp=temp->prev;
+    }
+    if(ptr!=NULL){
+        head=ptr->prev;
     }
 }
 int main(){
@@ -43,6 +53,7 @@ int main(){
     printf("Elements of linked list are:\n");
     display(head);
     printf("\nElements of linked list in reverse\n");
-    reverse(head);
+    reverse(&head);
+    display(head);
     return 0;
 }
